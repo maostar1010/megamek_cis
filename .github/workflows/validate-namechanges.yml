@@ -1,19 +1,20 @@
 name: Validate Name Changes List
 
 on:
-  push:
-    branches: [master]
-    paths:
-      # Necessary when the name_changes.txt list is updated or any unit file.
-      - "megamek/data/mekfiles/**.blk"
-      - "megamek/data/mekfiles/**.mtf"
-      - "megamek/data/mekfiles/name_changes.txt"
-  pull_request:
-    branches: [master]
-    paths:
-      - "megamek/data/mekfiles/**.blk"
-      - "megamek/data/mekfiles/**.mtf"
-      - "megamek/data/mekfiles/name_changes.txt"
+  workflow_dispatch:
+  # push:
+  #   branches: [master]
+  #   paths:
+  #     # Necessary when the name_changes.txt list is updated or any unit file.
+  #     - "megamek/data/mekfiles/**.blk"
+  #     - "megamek/data/mekfiles/**.mtf"
+  #     - "megamek/data/mekfiles/name_changes.txt"
+  # pull_request:
+  #   branches: [master]
+  #   paths:
+  #     - "megamek/data/mekfiles/**.blk"
+  #     - "megamek/data/mekfiles/**.mtf"
+  #     - "megamek/data/mekfiles/name_changes.txt"
 
 env:
   GRADLE_OPTS: "-Dscan.link.VCS=${{ github.event.pull_request.html_url }}"
